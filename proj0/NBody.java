@@ -1,5 +1,5 @@
-import examples.In;
-import examples.StdDraw;
+//import examples.In;
+//import examples.StdDraw;
 
 public class NBody {
 
