@@ -1,4 +1,4 @@
-/* 
+package examples;/*
  *
  * Make sure to see the more detailed description of
  * StdDraw at: http://introcs.cs.princeton.edu/java/15inout/ 
@@ -9,6 +9,8 @@
  *   http://introcs.cs.princeton.edu/java/15inout/javadoc/StdDraw.html
  */
 
+import edu.princeton.cs.introcs.StdRandom;
+
 public class StdDrawDemo {
 	public static String imageToDraw = "advice.png";
 
@@ -16,7 +18,7 @@ public class StdDrawDemo {
 	public static void drawThree() {
 		/** Sets up the universe so it goes from 
 		  * -100, -100 up to 100, 100 */
-		StdDraw.setScale(-100, 100);
+		StdDraw.setScale(-100, 100);          // 可以看出来原点在中心
 
 		/* Clears the drawing window. */
 		StdDraw.clear();
@@ -26,7 +28,7 @@ public class StdDrawDemo {
 		StdDraw.picture(-75, -75, imageToDraw);
 		StdDraw.picture(75, -75, imageToDraw);
 
-		/* Shows the drawing to the screen, and waits 2000 milliseconds. */
+		/* Shows the drawing to the screen, and waits 2000 milliseconds (2000 ms = 2s). */
 		StdDraw.show();
 		StdDraw.pause(2000);		
 	}
@@ -34,6 +36,7 @@ public class StdDrawDemo {
 	/* Draws random copies of the image, clearing in between
 	 * drawings. */
 	public static void drawRandom() {
+//		StdDraw.enableDoubleBuffering();
 		int waitTimeMilliseconds = 100;
 
 		/* Stamp 100 additional pictures in random locations,
@@ -96,8 +99,8 @@ public class StdDrawDemo {
 
 	public static void main(String[] args) {
 		
-		drawThree();
-		drawRandom();
-		drawZoom();
+		drawThree();     // 画三个多边形
+		drawRandom();    // 画随机游动
+		drawZoom();      // 画放大缩小动画
 	}
 } 

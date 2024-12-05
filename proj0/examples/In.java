@@ -1,10 +1,12 @@
-/*************************************************************************
+package examples; /*************************************************************************
  *  Compilation:  javac In.java
  *  Execution:    java In   (basic test --- see source for required files)
  *
  *  Reads in data of various types from standard input, files, and URLs.
  *
  *************************************************************************/
+
+import edu.princeton.cs.algs4.StdIn;
 
 import java.io.BufferedInputStream;
 import java.io.File;

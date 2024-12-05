@@ -1,8 +1,18 @@
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+@ExtendWith(MockitoExtension.class)
 public class IntListTest {
+
+    private static final int FIRST = 64;
+    @Mock
+    private IntList rest;
+    @InjectMocks
+    private IntList underTest;
 
     /**
      * Example test that verifies correctness of the IntList.of static
@@ -66,4 +76,89 @@ public class IntListTest {
         assertEquals(IntList.of(1, 2, 3), A);
     }
 
+    @Test(timeout=100)
+    public void testReverse() {
+        IntList A = IntList.of(1, 2, 3);
+        IntList B = IntList.of(3, 2, 1);
+        assertEquals(B,IntList.reverse(A));     // assertEquals(B,A=IntList.reverse(A));
+        assertEquals(B,A);
+        assertEquals(null,IntList.reverse(null));
+    }
+
+
+
+
+    @Nested
+    class WhenDingSquareList {
+        @Mock
+        private IntList l;
+
+        @BeforeEach
+        void setup() {
+        }
+    }
+
+    @Nested
+    class WhenSquaringListIterative {
+        @Mock
+        private IntList l;
+
+        @BeforeEach
+        void setup() {
+        }
+    }
+
+    @Nested
+    class WhenSquaringListRecursive {
+        @Mock
+        private IntList l;
+
+        @BeforeEach
+        void setup() {
+        }
+    }
+
+    @Nested
+    class WhenDcatenating {
+        @Mock
+        private IntList a;
+        @Mock
+        private IntList b;
+
+        @BeforeEach
+        void setup() {
+        }
+    }
+
+    @Nested
+    class WhenCatenating {
+        @Mock
+        private IntList a;
+        @Mock
+        private IntList b;
+
+        @BeforeEach
+        void setup() {
+        }
+    }
+
+    @Nested
+    class WhenMaining {
+        @Mock
+        private String[] args;
+
+        @BeforeEach
+        void setup() {
+        }
+    }
+
+    @Nested
+    class WhenOfing {
+        @Mock
+        private Integer[] args;
+
+        @BeforeEach
+        void setup() {
+        }
+    }
 }

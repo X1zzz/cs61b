@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.Test;
+import org.testng.CommandLineArgs;
 
 public class ArithmeticTest {
 
@@ -29,7 +32,7 @@ public class ArithmeticTest {
     }
 
     /* Run the unit tests in this file. */
-    public static void main(String... args) {        
-        jh61b.junit.TestRunner.runTests("all", ArithmeticTest.class);
+    public static void main(String... args) {
+//        jh61b.junit.TestRunner.runTests("all", ArithmeticTest.class);
     }
 }

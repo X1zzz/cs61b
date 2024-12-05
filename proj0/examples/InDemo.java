@@ -1,3 +1,5 @@
+package examples;
+
 /** Lets the user request the yearly salt production
  *  in metric tons of a given country! Fun fun fun!
  *  @author Josh Hug
@@ -6,6 +8,7 @@
 public class InDemo {	
 
 	public static void main(String[] args) {
+		args = new String[] {"China","India"};
 		if (args.length == 0) {
 			System.out.println("Please supply a country as a command line argument.");
 			System.out.println("For countries with spaces, use an underscore, e.g. South_Korea");

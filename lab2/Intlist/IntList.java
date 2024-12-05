@@ -1,3 +1,5 @@
+
+
 import java.util.Formatter;
 
 /**
@@ -29,7 +31,7 @@ public class IntList {
      * A List with null rest, and first = 0.
      */
     public IntList() {
-    /* NOTE: public IntList () { }  would also work. */
+        /* NOTE: public IntList () { }  would also work. */
         this(0, null);
     }
 
@@ -82,7 +84,16 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        IntList Astart = A;
+        if (B == null) {
+            return A;
+        }
+        while (A.rest != null) {
+            A = A.rest;
+        }
+        A.rest = B;
+        return Astart;
+
     }
 
     /**
@@ -91,23 +102,61 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        IntList C = new IntList();
+        IntList startC = C;
+        if (B == null) {
+            return A;
+        }
+        while (A.rest != null) {
+            C.first = A.first;
+            C.rest = new IntList();
+            C = C.rest;
+
+            A = A.rest;
+        }
+//        if (A.rest == null) {
+            C.first = A.first;
+            C.rest = B;
+//        }
+//        C.rest = B;
+        return startC;
     }
 
 
+    public static void main(String[] args) {
+        IntList origL = IntList.of(1, 2, 3);
+        dSquareList(origL);
+    }
 
+    public static IntList reverse(IntList A) {
+        if (A == null) {return null;}
 
+        IntList C = A;
+        IntList B = A;
+//        A = A.rest;
+//        C.rest = A.rest;
+//        A.rest = A;
 
+        while (C.rest != null) {
+            A = C.rest;
+            C.rest = A.rest;    // C.rest在上一步被A存储过后，马上就可以更新用来存储其他地址了
+            A.rest = B;  //B
+            B=A;
+        }
 
-
-
-
-
-
-
-
-
-
+        return A;
+    }
+// while内还支持另一种写法，也可以正常实现
+//    B.first = A.first;
+//        while (A.rest != null)
+//    {
+//
+//        IntList C = new IntList(0,B);
+//        B=C;
+//
+//        A=A.rest;
+//        B.first = A.first;
+//    }
 
     /**
      * DO NOT MODIFY ANYTHING BELOW THIS LINE! Many of the concepts below here
