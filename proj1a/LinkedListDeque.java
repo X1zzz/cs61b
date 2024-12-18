@@ -1,20 +1,20 @@
-public class LinkedListDeque<T> implements doubleEndedQueue<T> {
+public class LinkedListDeque<T>  {
     int size = 0;
-    itemNode sentinel = new itemNode();
-    itemNode last = null;
+    ItemNode sentinel = new ItemNode();
+    ItemNode last = null;
 
-    public class itemNode{
-        itemNode prev;
+    public class ItemNode{
+        ItemNode prev;
         T item;
-        itemNode next;
+        ItemNode next;
 
-        public itemNode(itemNode p, T itemT, itemNode n){
+        public ItemNode(ItemNode p, T itemT, ItemNode n){
             prev = p;
             item = itemT;
             next = n;
         }
 
-        public itemNode(){
+        public ItemNode(){
             prev = this;
             next = this;
         }
@@ -22,25 +22,25 @@ public class LinkedListDeque<T> implements doubleEndedQueue<T> {
 
 
 
-    @Override
+
     public void addFirst(T item) {
-        itemNode newNode = new itemNode(sentinel,item,sentinel.next);
+        ItemNode newNode = new ItemNode(sentinel,item,sentinel.next);
         sentinel.next.prev = newNode;
         sentinel.next = newNode;
         if (size == 0) last = newNode;
         size += 1;
     }
 
-    @Override
+
     public void addLast(T item) {
-        itemNode newNode = new itemNode(last,item,last.next);
+        ItemNode newNode = new ItemNode(last,item,last.next);
         last.next = newNode;
         last = newNode;
         if (size==0) sentinel.next=newNode;
         size += 1;
     }
 
-    @Override
+
     public boolean isEmpty() {
 //        if(size == 0)  return true;
 //        return false;
@@ -48,14 +48,14 @@ public class LinkedListDeque<T> implements doubleEndedQueue<T> {
         return size == 0;
     }
 
-    @Override
+
     public int size() {
         return size;
     }
 
-    @Override
+
     public void printDeque() {
-        itemNode p = sentinel;
+        ItemNode p = sentinel;
         while (p.next != sentinel){
             System.out.print(p.item);
             System.out.print(' ');
@@ -64,11 +64,11 @@ public class LinkedListDeque<T> implements doubleEndedQueue<T> {
 
     }
 
-    @Override
+
     public T removeFirst() {
         if(size == 0) return null;
 
-        itemNode firstNode = sentinel.next;
+        ItemNode firstNode = sentinel.next;
         T firstItem = firstNode.item;
         sentinel.next = firstNode.next;
         firstNode.next.prev = sentinel;
@@ -76,7 +76,6 @@ public class LinkedListDeque<T> implements doubleEndedQueue<T> {
         return firstItem;
     }
 
-    @Override
     public T removeLast() {
         if(size == 0) return null;
         T lastItem = last.item;
@@ -86,11 +85,10 @@ public class LinkedListDeque<T> implements doubleEndedQueue<T> {
         return lastItem;
     }
 
-    @Override
     public T get(int index) {
         if(index<0 || index >=size) return null;
 
-        itemNode p = sentinel;
+        ItemNode p = sentinel;
         for(int i=0; i <= index; i++)
         {
             p = p.next;

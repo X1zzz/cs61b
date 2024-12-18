@@ -1,9 +1,9 @@
-public class ArrayDeque<T> implements doubleEndedQueue<T> {
-    int size;
-    T[] itemArray;
-    int first;
-    int last;
-    int capacity;
+public class ArrayDeque<T> {
+    private int size;
+    private T[] itemArray;
+    private int first;
+    private int last;
+    private int capacity;
 
     // Creates an empty array deque.
     public ArrayDeque() {
@@ -14,7 +14,7 @@ public class ArrayDeque<T> implements doubleEndedQueue<T> {
         capacity = 8;
     }
 
-    public void resizing() {
+    private void resizing() {
         if (size / capacity > 0.75) {
             capacity *= 2;
             T[] itemArraryNew = (T[]) new Object[capacity];
@@ -36,11 +36,11 @@ public class ArrayDeque<T> implements doubleEndedQueue<T> {
     }
 
 
-    @Override
+
     public void addFirst(T item) {
         if (size == 0) {
             itemArray[first] = item;
-            size +=1;
+            size += 1;
             return;
         }
         size = size + 1;
@@ -49,11 +49,11 @@ public class ArrayDeque<T> implements doubleEndedQueue<T> {
         itemArray[first] = item;
     }
 
-    @Override
+
     public void addLast(T item) {
         if (size == 0) {
             itemArray[last] = item;
-            size +=1;
+            size += 1;
             return;
         }
         size = size + 1;
@@ -62,17 +62,16 @@ public class ArrayDeque<T> implements doubleEndedQueue<T> {
         itemArray[last] = item;
     }
 
-    @Override
+
     public boolean isEmpty() {
         return size == 0;
     }
 
-    @Override
     public int size() {
         return size;
     }
 
-    @Override
+
     public void printDeque() {
         for (int i = 0; i <= size - 1; i++) {
             int currIdx = (i + first) % capacity;
@@ -81,7 +80,7 @@ public class ArrayDeque<T> implements doubleEndedQueue<T> {
         }
     }
 
-    @Override
+
     public T removeFirst() {
         T firstRemoved = itemArray[first];
         first = (first + 1) % capacity;
@@ -89,7 +88,7 @@ public class ArrayDeque<T> implements doubleEndedQueue<T> {
         return firstRemoved;
     }
 
-    @Override
+
     public T removeLast() {
         T lastRemoved = itemArray[last];
         first = (last - 1 + capacity) % capacity;
@@ -97,7 +96,7 @@ public class ArrayDeque<T> implements doubleEndedQueue<T> {
         return lastRemoved;
     }
 
-    @Override
+
     public T get(int index) {
         return itemArray[(first + index) % capacity];
     }
