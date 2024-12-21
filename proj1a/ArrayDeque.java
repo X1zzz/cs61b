@@ -90,6 +90,9 @@ public class ArrayDeque<T> {
 
 
     public T removeLast() {
+        if (size == 0){
+            return null;
+        }
         T lastRemoved = itemArray[last];
         first = (last - 1 + capacity) % capacity;
         size -= 1;
@@ -98,7 +101,27 @@ public class ArrayDeque<T> {
 
 
     public T get(int index) {
+        if (index >= size || index < 0) {
+            return null;
+        }
         return itemArray[(first + index) % capacity];
+    }
+
+
+    private int minusOne(int index) {
+        if(index == 0) {
+            return capacity-1;
+        }
+        return index-1;
+    }
+
+    private int plusOne(int index, int module){
+        index %= module;
+        if (index == module-1){
+            return 0;
+        }
+        return index+1;
+
     }
 
 

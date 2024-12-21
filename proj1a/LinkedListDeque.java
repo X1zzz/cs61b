@@ -1,12 +1,12 @@
 //public class LinkedListDeque<T>  {
-//    int size = 0;
-//    ItemNode sentinel = new ItemNode();
-//    ItemNode last = null;
+////    int size = 0;
+////    ItemNode sentinel = new ItemNode();
+////    ItemNode last = null;
 //
 //    public class ItemNode{
-//        ItemNode prev;
-//        T item;
-//        ItemNode next;
+//        private ItemNode prev;
+//        private T item;
+//        private ItemNode next;
 //
 //        public ItemNode(ItemNode p, T itemT, ItemNode n){
 //            prev = p;
@@ -14,11 +14,26 @@
 //            next = n;
 //        }
 //
+//        /** the constructor for sentinel node */
 //        public ItemNode(){
 //            prev = this;
 //            next = this;
 //        }
 //    }
+//
+//    /** sentinel node. */
+//    private ItemNode sentinel;      // 它没有再单独设计一个last，而是用sentinel的prev去存储last
+//    /** size of the deque. */
+//    private int size;
+//
+//    /** constructor for deque. */
+//    public LinkedListDeque() {
+//        sentinel = new ItemNode();
+////        sentinel.prev = sentinel;
+////        sentinel.next = sentinel;
+//        size = 0;
+//    }
+//
 //
 //
 //
@@ -95,7 +110,22 @@
 //        }
 //        return p.item;
 //    }
+//
+//    public T getRecursive(int index) {
+//        if(index<0 || index >=size) return null;
+//    }
+//
+//
+//    public static void main(String[] args) {
+//        System.out.println(LinkedListDeque.size);
+//
+//    }
+//
 //}
+
+
+
+
 
 /**  first part of project1A.
  *   Deque implemented by Linked List
